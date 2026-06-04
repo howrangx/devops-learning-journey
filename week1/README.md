@@ -1,162 +1,110 @@
-# Week 1: Linux Fundamentals & Command Line Mastery
+WEEK 1: LINUX FUNDAMENTALS & COMMAND LINE MASTERY
 
-## Overview
+Overview
+This week focused on building a solid Linux foundation essential for all DevOps work.
+Complete week with 5 daily lessons plus capstone project.
 
-This week focuses on building a solid foundation in Linux system administration and command-line proficiency. These skills are essential for all subsequent DevOps work.
-
-## Learning Objectives
+Learning Objectives
 
 By the end of this week, you will:
-- Navigate Linux filesystem confidently
-- Understand and manage file permissions
-- Master text processing and searching (grep, awk, sed)
+- Master Linux navigation and file operations
+- Understand file permissions and user management
+- Process text with grep, awk, sed, cut
 - Monitor and manage system processes
-- Write functional bash scripts with variables, loops, and conditionals
-- Create a reusable system administration dashboard
+- Write functional bash scripts
+- Create comprehensive system administration tools
 
-## Daily Breakdown
+Phase 1 Content Structure
 
-### Day 1: Linux Basics & System Navigation
-- **Focus**: File system hierarchy, navigation commands, file operations
-- **Deliverable**: `day1-commands.txt` - Command reference
-- **Time**: 2-3 hours
+Week 1 (Complete)
+- Day 1: Linux Fundamentals & Command Line Navigation
+- Day 2: File Permissions & User Management
+- Day 3: Text Processing & Searching
+- Day 4: Process Management & System Monitoring
+- Day 5: Bash Scripting Fundamentals
+- Weekend: Capstone - System Administration Dashboard
 
-### Day 2: File Permissions & User Management
-- **Focus**: Understanding Linux permission system, user/group management
-- **Deliverable**: `day2-permissions.md` - Permission reference with examples
-- **Time**: 2-3 hours
+Completion Status: COMPLETE
+Completion Date: June 4, 2026
 
-### Day 3: Text Processing & Searching
-- **Focus**: grep, find, awk, sed, pipes and redirection
-- **Deliverable**: `log-analyzer.sh` - Functional log analysis script
-- **Time**: 3-4 hours
+Deliverables
 
-### Day 4: Process Management & System Monitoring
-- **Focus**: Process control, system resource monitoring, top/htop
-- **Deliverable**: `system_monitor.sh` - Real-time system monitoring script
-- **Time**: 2-3 hours
+Documentation (5 daily + 4 capstone files):
+- notes/day1-commands.txt (4.3K)
+- notes/day2-permissions.md (5.2K)
+- notes/day3-text-processing.md (7.5K)
+- notes/day4-processes.md (7.8K)
+- notes/day5-bash-scripting.md (9.0K)
+- CAPSTONE-PLAN.md (project design)
+- DASHBOARD-DOCUMENTATION.md (user guide)
+- TESTING-CHECKLIST.md (verification matrix)
+- CAPSTONE-TEST-RESULTS.md (sign-off)
 
-### Day 5: Bash Scripting Fundamentals
-- **Focus**: Variables, conditionals, loops, functions, error handling
-- **Deliverable**: `backup_script.sh` and `deployment_checker.sh`
-- **Time**: 3-4 hours
+Scripts (7 production-ready tools):
+- scripts/log-analyzer.sh (3.4K)
+- scripts/system_monitor.sh (4.5K)
+- scripts/quick-health-check.sh (532B)
+- scripts/backup_script.sh (3.2K)
+- scripts/deployment_checker.sh (4.7K)
+- scripts/devops_dashboard.sh (11K - main capstone)
+- scripts/devops_dashboard_enhancements.md
 
-### Weekend: Capstone Project
-- **Focus**: Integrate all week's learning
-- **Deliverable**: `devops_dashboard.sh` - Comprehensive system admin tool
-- **Time**: 4-6 hours
+Skills Acquired
 
-## Resources
+Linux Administration:
+- Filesystem navigation and file operations
+- File permissions and ownership management
+- Process monitoring and control
+- System resource analysis
+- Log file parsing and analysis
 
-### Free Learning Platforms
-- [Linux Journey](https://linuxjourney.com/) - Interactive lessons
-- [OverTheWire: Bandit](https://overthewire.org/wargames/bandit/) - Gamified learning
-- [Bash Scripting Guide](https://www.shellscript.sh/) - Comprehensive reference
-- [ExplainShell](https://explainshell.com/) - Command explanation tool
+Text Processing:
+- Pattern matching with grep
+- Data extraction with awk
+- Text substitution with sed
+- Field selection with cut
+- Data organization with sort/uniq
+- Piping and output redirection
 
-### Man Pages (Built-in Help)
-```bash
-man ls          # Get help for any command
-man -k keyword  # Search man pages by keyword
-```
+Bash Scripting:
+- Variables and user input
+- Conditional statements and case logic
+- Loops (for, while) and iterations
+- Functions and code organization
+- Error handling and exit codes
+- Professional script structure
 
-## Folder Structure
+System Administration:
+- System information gathering
+- CPU, memory, disk monitoring
+- Process management
+- Service health checking
+- Log analysis and reporting
 
-week1/
-├── README.md                    # This file
-├── scripts/                     # Bash scripts
-│   ├── log-analyzer.sh
-│   ├── system_monitor.sh
-│   ├── backup_script.sh
-│   ├── deployment_checker.sh
-│   └── devops_dashboard.sh
-├── notes/                       # Learning notes
-│   ├── day1-commands.txt
-│   └── day2-permissions.md
-├── logs/                        # Output logs (generated during execution)
-└── configs/                     # Configuration files (if needed)
+Technologies Covered
 
-## Getting Started
+Linux, Bash, Command Line, File Operations, Permissions,
+Text Processing, Process Management, System Monitoring,
+Scripting, Automation, Logging, Reporting
 
-### Prerequisites
-- Linux environment (WSL2, Virtual Machine, or EC2)
-- Bash shell
-- Text editor (nano, vim, or VS Code)
-- Internet connection for resources
+Time Commitment
 
-### Setup Your Environment
-```bash
-# Verify you're in the week1 directory
-cd week1
+Study: 10-12 hours
+Hands-on: 10-12 hours
+Documentation: 2-3 hours
+Capstone: 4-6 hours
+Total: 26-33 hours
 
-# Create subdirectories if not already done
-mkdir -p scripts notes logs configs
+Portfolio Value
 
-# Verify structure
-ls -la
-```
+Week 1 deliverables include:
+- Comprehensive system administration tool
+- Multiple automation scripts
+- Professional documentation
+- Portfolio-ready work
+- Demonstrates integration of concepts
+- Suitable for interviews and freelance
 
-## Success Criteria
-
-You're ready to move to Week 2 when you can:
-- [ ] Navigate filesystem without `ls -la` crutches
-- [ ] Understand and apply file permissions correctly
-- [ ] Use grep/find/awk for text processing
-- [ ] Monitor system resources with various tools
-- [ ] Write bash scripts with proper error handling
-- [ ] Complete the devops_dashboard.sh project with 80%+ functionality
-- [ ] Push all code to GitHub with clean commits
-
-## Self-Assessment Checklist
-
-### Linux Basics & Navigation
-- [ ] Can navigate to any directory using absolute/relative paths
-- [ ] Know the Linux filesystem hierarchy
-- [ ] Can create, copy, move, delete files and directories
-- [ ] Understand hidden files and dot notation
-
-### Permissions & Users
-- [ ] Can read permission strings (rwxrwxrwx)
-- [ ] Can convert between numeric and symbolic permissions
-- [ ] Know when to use chmod and chown
-- [ ] Understand default permissions
-
-### Text Processing
-- [ ] Can use grep effectively for pattern matching
-- [ ] Can use find to locate files
-- [ ] Can write basic awk and sed commands
-- [ ] Understand pipes and output redirection
-
-### Processes & Monitoring
-- [ ] Can view running processes with ps and top
-- [ ] Can kill and manage processes
-- [ ] Can monitor CPU, memory, and disk usage
-- [ ] Understand load averages
-
-### Bash Scripting
-- [ ] Can write scripts with variables and conditionals
-- [ ] Can use for/while loops
-- [ ] Can define and call functions
-- [ ] Can handle errors with exit codes
-- [ ] Can read input from users and files
-
-## Bonus Challenges
-
-- [ ] Set up bash aliases for frequently used commands
-- [ ] Create a cron job to run system_monitor.sh daily
-- [ ] Add color output to your scripts
-- [ ] Create an HTML report generator
-- [ ] Implement email notifications for alerts
-
-## Notes
-
-- Practice typing commands instead of copy-pasting
-- Use `man` pages as your friend
-- Break things and learn from errors
-- Document your learning as you go
-- Push to Git regularly with meaningful commit messages
-
----
-
-**Status**: In Progress
-**Last Updated**: May 2026
+Status: COMPLETE
+Last Updated: June 4, 2026
+Next Phase: Week 2 - Networking & Git Basics
