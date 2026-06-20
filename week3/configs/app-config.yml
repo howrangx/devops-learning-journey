@@ -1,0 +1,14 @@
+server:
+  host: localhost
+  port: 8080
+  debug: true
+
+database:
+  host: db.example.com
+  port: 5432
+  name: devops_app
+
+monitoring:
+  interval: 30
+  threshold_cpu: 80
+  threshold_memory: 80
