@@ -12,3 +12,11 @@ monitoring:
   interval: 30
   threshold_cpu: 80
   threshold_memory: 80
+  threshold_disk: 80
+
+connectivity:
+  targets:
+    - name: GitHub
+      url: https://api.github.com
+    - name: PyPI
+      url: https://pypi.org
