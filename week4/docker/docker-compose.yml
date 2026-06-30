@@ -1,0 +1,24 @@
+services:
+  web:
+    image: nginx:latest
+    container_name: compose-web
+    ports:
+      - "8080:80"
+    volumes:
+      - ./html:/usr/share/nginx/html
+    networks:
+      - devops-net
+    restart: unless-stopped
+
+  app:
+    build: .
+    container_name: compose-app
+    environment:
+      - APP_ENV=development
+      - APP_VERSION=1.1
+    networks:
+      - devops-net
+    restart: "no"
+
+networks:
+  devops-net:
