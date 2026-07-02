@@ -1,0 +1,18 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+ENV APP_ENV=production
+
+RUN apt-get update && \
+    apt-get install -y procps && \
+    rm -rf /var/lib/apt/lists/*
+
+COPY week3/requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY week3/scripts/devops_toolkit.py .
+COPY week3/configs/app-config.yml configs/
+COPY week4/docker/sample.log logs/
+
+CMD ["python3", "devops_toolkit.py", "report"]

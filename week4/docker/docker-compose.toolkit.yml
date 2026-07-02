@@ -1,0 +1,9 @@
+services:
+  toolkit:
+    build:
+      context: ../..
+      dockerfile: week4/docker/Dockerfile.toolkit
+    image: devops-toolkit:1.0
+    container_name: devops-toolkit
+    environment:
+      - APP_ENV=production

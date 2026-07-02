@@ -271,7 +271,8 @@ def cmd_report(args, config, logger):
     print_header('REPORT SUMMARY')
     print(f"  Timestamp:    {report['timestamp']}")
     print(f"  Health:       {health['status']}")
-    print(f"  Log errors:   {logs['counts'].get('ERROR', 0)}")
+    log_errors = logs['counts'].get('ERROR', 0) if logs else 'N/A'
+    print(f"  Log errors:   {log_errors}")
     print(f"  Connectivity: {sum(1 for t in ping if t['reachable'])}/{len(ping)} reachable")
     print(f"  Saved to:     {output}")
     print()
