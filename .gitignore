@@ -56,3 +56,4 @@ build/
 *.dockerignore
 docker-compose.override.yml
 !week4/docker/sample.log
+week5-key.pem
