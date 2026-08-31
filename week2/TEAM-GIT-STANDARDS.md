@@ -389,27 +389,19 @@ CONTRIBUTING.md:
 
 Repository Structure
 
-Organize logically:project/
+Organize logically:
 
-├── src/          Source code
-
-├── tests/        Test files
-
-├── docs/         Documentation
-
-├── scripts/      Utility scripts
-
-├── config/       Configuration
-
-├── .github/      GitHub templates
-
-├── README.md
-
-├── LICENSE
-
-├── CONTRIBUTING.md
-
-└── .gitignore
+project/
+  src/          Source code
+  tests/        Test files
+  docs/         Documentation
+  scripts/      Utility scripts
+  config/       Configuration
+  .github/      GitHub templates
+  README.md
+  LICENSE
+  CONTRIBUTING.md
+  .gitignore
 
 ========================================
 7. DEPLOYMENT AND RELEASES

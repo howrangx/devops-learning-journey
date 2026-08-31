@@ -349,16 +349,16 @@ mypy script.py
 Project Structure
 
 project/
-├── mylib/
-│   ├── __init__.py
-│   ├── core.py
-│   └── utils.py
-├── tests/
-│   ├── test_core.py
-│   └── test_utils.py
-├── setup.py
-├── requirements.txt
-└── README.md
+  mylib/
+      __init__.py
+      core.py
+      utils.py
+  tests/
+      test_core.py
+      test_utils.py
+  setup.py
+  requirements.txt
+  README.md
 
 Basic Module
 

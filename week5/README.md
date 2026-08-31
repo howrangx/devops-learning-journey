@@ -1,71 +1,82 @@
-# Week 5: AWS Fundamentals - Part 1
+# Week 5: AWS Fundamentals Part 1
 
 ## Overview
 
-Week 5 introduces the core AWS services that form the foundation for
-almost everything else in cloud infrastructure: EC2 (compute), S3
-(storage), and VPC (networking). This week focuses on hands-on use of
-the AWS CLI alongside the console, building the habits needed for
-infrastructure automation in later weeks.
-
-## Status
-
-Status: IN PROGRESS
-Start Date: July 08, 2026
+The core AWS services that everything else builds on: EC2 for compute, S3
+for storage, and VPC for networking. Provisioning is done through the AWS
+CLI rather than the console wherever possible, so that every step is
+reproducible and reviewable, which is the habit the Infrastructure as Code
+weeks depend on.
 
 ## Prerequisites
 
-- AWS account created (Free Tier)
+- AWS account with billing alerts configured
 - AWS CLI installed and configured
-- IAM user created with programmatic access
+- IAM user with programmatic access
 
 ## Learning Objectives
 
-By the end of this week, you will:
-- Understand AWS global infrastructure (regions, availability zones)
-- Launch and manage EC2 instances
-- Create and manage S3 buckets and objects
-- Understand VPC networking fundamentals
-- Use the AWS CLI to manage resources instead of relying solely on
-  the console
-- Understand AWS Free Tier limits and how to avoid unexpected charges
+- Understand AWS global infrastructure: regions and availability zones
+- Launch, configure and terminate EC2 instances
+- Use user data scripts, EBS volumes and instance metadata
+- Create and manage S3 buckets, versioning, lifecycle rules and policies
+- Build VPC subnets, route tables and security groups
+- Automate AWS operations with boto3
+- Track spending and avoid unexpected charges
 
-## Curriculum Structure
+## Daily Structure
 
-Day 1: AWS Fundamentals - EC2, S3, VPC Basics
-Day 2: EC2 Deep Dive - Launching and Managing Instances
-Day 3: S3 Deep Dive - Storage, Versioning, and Access Control
-Day 4: VPC Deep Dive - Subnets, Routing, and Security Groups
-Day 5: AWS CLI Automation Scripts
-Weekend Capstone: AWS Infrastructure Project
+- Day 1: AWS fundamentals - EC2, S3 and VPC basics
+- Day 2: EC2 deep dive - user data, EBS, IMDSv2, Elastic IPs
+- Day 3: S3 deep dive - versioning, lifecycle rules and access control
+- Day 4: VPC deep dive - subnets, routing and security groups
+- Day 5: AWS CLI and boto3 automation
+- Weekend capstone: AWS infrastructure project
 
 ## Deliverables
 
-Daily Documentation:
-- notes/day1-aws-fundamentals.md
-- notes/day2-ec2-deep-dive.md
-- notes/day3-s3-deep-dive.md
-- notes/day4-vpc-deep-dive.md
-- notes/day5-cli-automation.md
+Documentation
 
-Scripts:
-- scripts/ (AWS automation scripts, added throughout the week)
+- `notes/day1-aws-fundamentals.md`
+- `notes/day2-ec2-deep-dive.md`
+- `notes/day3-s3-deep-dive.md`
+- `notes/day4-vpc-deep-dive.md`
+- `notes/day5-cli-automation.md`
+- `notes/day1-hands-on-log.md` through `notes/day5-hands-on-log.md` -
+  the commands actually run each day, their output, and what went wrong
+- `CAPSTONE-PROJECT.md` - infrastructure design and deployment guide
 
-Capstone:
-- Weekend AWS infrastructure project (details to follow)
+Scripts and configuration
 
-## Folder Structure
+- `scripts/capstone_deploy.py` - capstone deployment automation
+- `scripts/aws_automation.py` - boto3 resource management
+- `capstone-user-data.sh`, `user-data-webserver.sh` - instance bootstrap
+- `s3-read-policy.json`, `trust-policy.json` - IAM policy documents
+- `capstone-config.html` - capstone web content
 
-week5/
-  README.md
-  notes/
-  scripts/
-  configs/
-  logs/
+## Technologies
+
+AWS EC2, S3, VPC, IAM, EBS, Elastic IPs, IMDSv2, AWS CLI v2, boto3
+
+## Time Commitment
+
+Study 10-12 hours, hands-on 10-12 hours, capstone 4-6 hours.
+Total 24-30 hours.
 
 ## Notes
 
-- Keep all resources in a single region (us-east-1 recommended) to
-  simplify tracking and avoid unexpected cross-region charges.
-- Always terminate or stop EC2 instances when not actively in use.
-- Review the AWS Free Tier usage dashboard periodically this week.
+- Keep resources in a single region to simplify tracking and avoid
+  cross-region charges. A resource sweep run without an explicit
+  `--region` only reports on one region out of roughly thirty.
+- Terminate instances at the end of every session. Elastic IPs are billed
+  while allocated but unattached.
+- `t2.micro` is not eligible on this account; `t3.micro` is the correct
+  instance type.
+- SSH private keys must be mode 400 and are excluded by `.gitignore`.
+
+## Status
+
+COMPLETE - finished July 2026
+
+Previous: Week 4 - Docker Fundamentals
+Next: Week 6 - AWS Fundamentals Part 2

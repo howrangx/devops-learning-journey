@@ -1,38 +1,72 @@
-WEEK 2: NETWORKING AND GIT BASICS
+# Week 2: Networking and Git
 
-Overview
-This week focuses on networking fundamentals and Git version control.
-These concepts are essential for cloud infrastructure and team collaboration.
+## Overview
 
-Learning Objectives
+Two foundations in one week. The networking half covers how traffic
+actually moves, which is what makes cloud networking comprehensible later.
+The Git half goes past the basics into rebasing, cherry-picking and
+collaboration, and produces a complete set of team standards as its
+capstone.
 
-By the end of this week, you will:
-- Understand TCP/IP networking fundamentals
-- Know how DNS and HTTP/HTTPS work
-- Master Git version control commands
-- Use GitHub for project management
-- Collaborate with others using Git
-- Implement proper branching strategies
-- Create pull requests and code reviews
+## Learning Objectives
 
-Phase 2 Content Structure
+- Understand the OSI model and TCP/IP fundamentals
+- Know how DNS resolution and HTTP/HTTPS work
+- Troubleshoot connectivity with standard network tools
+- Use Git confidently, including rebase, cherry-pick, stash and tagging
+- Run a pull request and code review workflow
+- Choose and apply a branching strategy
+- Write standards other people can follow
 
-Week 2 (Networking & Git)
-- Day 1: Networking Fundamentals
-- Day 2: Git Basics and GitHub
-- Day 3: Advanced Git Workflows
-- Day 4: Collaboration and Pull Requests
-- Day 5: Git Best Practices and Branching
-- Weekend: Advanced Git Project
+## Daily Structure
 
-Time Commitment
-- Study: 10-12 hours
-- Hands-on: 10-12 hours
-- Documentation: 2-3 hours
-- Total: 22-27 hours
+- Day 1: Networking fundamentals
+- Day 2: Git basics and GitHub
+- Day 3: Advanced Git workflows
+- Day 4: Collaboration and pull requests
+- Day 5: Git best practices and branching strategies
+- Weekend capstone: Team Git standards system
 
-Technologies Covered
-TCP/IP, DNS, HTTP/HTTPS, Git, GitHub, Branching, Merging, Pull Requests
+## Deliverables
 
-Status: In Progress (Week 2)
-Last Updated: June 4, 2026
+Documentation
+
+- `notes/day1-networking-fundamentals.md` - OSI model, TCP/IP, DNS,
+  HTTP/HTTPS, network tools, cloud networking concepts
+- `notes/day2-git-basics.md`
+- `notes/day3-advanced-git.md`
+- `notes/day4-collaboration-pullrequests.md`
+- `notes/day5-git-best-practices.md`
+- `notes/git-workflow-examples.md` - ten real-world workflow walkthroughs
+
+Capstone
+
+- `CAPSTONE-PROJECT.md` - overview and success criteria
+- `TEAM-GIT-STANDARDS.md` - branching strategy, commit and review
+  standards, branch protection, release process
+- `GIT-WORKFLOW-HELPERS.md` - aliases, hooks, commit templates, automation
+- `TEAM-ONBOARDING.md` - new developer setup and first-week guide
+- `GIT-TROUBLESHOOTING.md` - failure modes and recovery procedures
+- `REAL-WORLD-SCENARIO.md` - a week of multi-developer collaboration
+
+Templates
+
+- `.github/pull_request_template.md`
+- `.github/ISSUE_TEMPLATE/bug_report.md`
+- `.github/ISSUE_TEMPLATE/feature_request.md`
+
+## Technologies
+
+TCP/IP, DNS, HTTP/HTTPS, dig, ss, mtr, Git, GitHub
+
+## Time Commitment
+
+Study 10-12 hours, hands-on 10-12 hours, documentation 2-3 hours.
+Total 22-27 hours.
+
+## Status
+
+COMPLETE - finished June 13, 2026
+
+Previous: Week 1 - Linux Fundamentals and Command Line
+Next: Week 3 - Python for DevOps

@@ -15,12 +15,12 @@ explored the IMDSv2 instance metadata service before terminating.
   custom index.html embedding the instance hostname
 
 ### EC2 Instance (terminated)
-- Instance ID: i-08d380739bd154592
+- Instance ID: INSTANCE_ID
 - AMI: ami-0ac742fa26982e153 (Amazon Linux 2023, minimal, x86_64)
 - Instance Type: t3.micro
-- Public IP (while running): 32.192.190.146
+- Public IP (while running): PUBLIC_IP
 - Key Pair: week5-key (reused from Day 1)
-- Security Group: sg-0e7def8b9c3b64661 (reused from Day 1)
+- Security Group: SECURITY_GROUP_ID (reused from Day 1)
 - Status: terminated at end of session
 
 ### Security Group Update
@@ -31,7 +31,7 @@ explored the IMDSv2 instance metadata service before terminating.
 
 Open HTTP port on existing security group:
 aws ec2 authorize-security-group-ingress \
-  --group-id sg-0e7def8b9c3b64661 \
+  --group-id SECURITY_GROUP_ID \
   --protocol tcp --port 80 \
   --cidr <own-public-ip>/32
 
@@ -40,13 +40,13 @@ aws ec2 run-instances \
   --image-id ami-0ac742fa26982e153 \
   --instance-type t3.micro \
   --key-name week5-key \
-  --security-group-ids sg-0e7def8b9c3b64661 \
+  --security-group-ids SECURITY_GROUP_ID \
   --user-data file://user-data-webserver.sh \
   --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=week5-day2-webserver}]'
 
 Check instance status:
 aws ec2 describe-instances \
-  --instance-ids i-08d380739bd154592 \
+  --instance-ids INSTANCE_ID \
   --query "Reservations[].Instances[].[InstanceId,State.Name,PublicIpAddress]" \
   --output table
 
@@ -60,7 +60,7 @@ curl -s http://169.254.169.254/latest/meta-data/instance-id \
   -H "X-aws-ec2-metadata-token: $(cat /tmp/token)"
 
 Terminate instance:
-aws ec2 terminate-instances --instance-ids i-08d380739bd154592
+aws ec2 terminate-instances --instance-ids INSTANCE_ID
 
 ## Key Takeaways
 

@@ -9,7 +9,7 @@ EC2 instance via the AWS CLI.
 ## Resources Created
 
 ### Default VPC (pre-existing, explored only)
-- VPC ID: vpc-0b4efe0812f9e7c1b
+- VPC ID: VPC_ID
 - CIDR Block: 172.31.0.0/16
 - Region: us-east-1
 
@@ -28,17 +28,17 @@ EC2 instance via the AWS CLI.
 
 ### Security Group
 - Name: week5-sg
-- Group ID: sg-0e7def8b9c3b64661
-- VPC: vpc-0b4efe0812f9e7c1b
+- Group ID: SECURITY_GROUP_ID
+- VPC: VPC_ID
 - Inbound rule: TCP port 22 (SSH), restricted to own public IP /32
 - Status: still exists, will be reused in later sessions
 
 ### EC2 Instance (terminated)
-- Instance ID: i-064b57c7ed950c930
+- Instance ID: INSTANCE_ID
 - AMI: ami-0ac742fa26982e153 (Amazon Linux 2023, minimal, x86_64)
 - Instance Type: t3.micro (free-tier eligible; t2.micro was not
   eligible on this account)
-- Public IP (while running): 44.201.54.34
+- Public IP (while running): PUBLIC_IP
 - Status: terminated at end of session
 
 ## Commands Used
@@ -66,9 +66,9 @@ chmod 400 week5-key.pem
 Create and configure security group:
 aws ec2 create-security-group --group-name week5-sg \
   --description "Week 5 learning security group" \
-  --vpc-id vpc-0b4efe0812f9e7c1b
+  --vpc-id VPC_ID
 aws ec2 authorize-security-group-ingress \
-  --group-id sg-0e7def8b9c3b64661 \
+  --group-id SECURITY_GROUP_ID \
   --protocol tcp --port 22 \
   --cidr <own-public-ip>/32
 
@@ -82,7 +82,7 @@ aws ec2 run-instances \
   --image-id ami-0ac742fa26982e153 \
   --instance-type t3.micro \
   --key-name week5-key \
-  --security-group-ids sg-0e7def8b9c3b64661 \
+  --security-group-ids SECURITY_GROUP_ID \
   --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=week5-learning-instance}]'
 
 Check instance status:
@@ -95,7 +95,7 @@ Connect via SSH:
 ssh -i week5-key.pem ec2-user@<public-ip>
 
 Terminate instance:
-aws ec2 terminate-instances --instance-ids i-064b57c7ed950c930
+aws ec2 terminate-instances --instance-ids INSTANCE_ID
 
 ## Issues Encountered
 

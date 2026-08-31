@@ -56,18 +56,18 @@ By completing this capstone, you will:
 PROJECT STRUCTURE
 
 week2/
-├── CAPSTONE-PROJECT.md (this file)
-├── TEAM-GIT-STANDARDS.md (main standards doc)
-├── GIT-WORKFLOW-HELPERS.md (scripts and tools)
-├── REAL-WORLD-SCENARIO.md (collaboration story)
-├── TEAM-ONBOARDING.md (new developer guide)
-├── GIT-TROUBLESHOOTING.md (common issues)
-├── .github/
-│   ├── pull_request_template.md
-│   └── ISSUE_TEMPLATE/
-│       ├── bug_report.md
-│       └── feature_request.md
-└── scripts/ (optional, for workflow helpers)
+  CAPSTONE-PROJECT.md (this file)
+  TEAM-GIT-STANDARDS.md (main standards doc)
+  GIT-WORKFLOW-HELPERS.md (scripts and tools)
+  REAL-WORLD-SCENARIO.md (collaboration story)
+  TEAM-ONBOARDING.md (new developer guide)
+  GIT-TROUBLESHOOTING.md (common issues)
+  .github/
+      pull_request_template.md
+      ISSUE_TEMPLATE/
+          bug_report.md
+          feature_request.md
+  scripts/ (optional, for workflow helpers)
 
 DELIVERABLES SUMMARY
 

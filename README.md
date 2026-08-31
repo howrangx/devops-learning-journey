@@ -75,7 +75,7 @@ developer onboarding guide, and a troubleshooting reference covering the
 failure modes people actually hit.
 
 **DevOps toolkit** (`week3/`, containerized in `week4/`)
-`devops_toolkit.py`, a multi-command CLI built with argparse, logging,
+`week3/scripts/devops_toolkit.py`, a multi-command CLI built with argparse, logging,
 subprocess and requests, exposing health, logs, ping and report
 subcommands. Later packaged into a container image with a Dockerfile and
 Compose stack.

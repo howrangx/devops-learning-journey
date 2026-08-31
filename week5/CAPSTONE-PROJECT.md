@@ -11,10 +11,10 @@ logs every action locally, and tears everything down afterward.
 
 ## Architecture
 
-- VPC: default VPC (vpc-0b4efe0812f9e7c1b)
-- Subnet: explicitly targeted (subnet-052b99125e9a5177c, us-east-1a),
+- VPC: default VPC (VPC_ID)
+- Subnet: explicitly targeted (SUBNET_ID, us-east-1a),
   rather than left to AWS's automatic subnet selection
-- Security Group: reused from earlier in the week (sg-0e7def8b9c3b64661),
+- Security Group: reused from earlier in the week (SECURITY_GROUP_ID),
   allowing inbound SSH (22) and HTTP (80) from a single IP
 - IAM Role: week5-ec2-s3-read, attached via an instance profile,
   granting the instance read-only access (s3:GetObject) scoped to a

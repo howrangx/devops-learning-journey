@@ -33,12 +33,12 @@ full termination.
 - AMI: ami-0ac742fa26982e153 (reused from Day 1/2)
 - Instance Type: t3.micro
 - Key Pair: week5-key (reused)
-- Security Group: sg-0e7def8b9c3b64661 (reused)
+- Security Group: SECURITY_GROUP_ID (reused)
 - S3 Bucket: iman-devops-week5-2026 (reused)
 
 ## Issues Encountered
 
-1. An instance launched during script testing (i-08a02bec41c90cc24)
+1. An instance launched during script testing (INSTANCE_ID)
    was left running after the script run completed, since each script
    execution only tracks the instance it launches, not instances from
    prior runs. Caught by running list_running_instances() again and
