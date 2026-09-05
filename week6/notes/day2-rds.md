@@ -8,9 +8,10 @@ COMPLETED BY: Iman
 1. WHAT RDS ACTUALLY MANAGES
 ========================================
 
-A database on an EC2 instance is a database you operate. You install the
-engine, patch it, configure backups, test restores, set up replication,
-monitor disk growth, and handle failover at three in the morning.
+A database on an EC2 instance is a database that has to be operated by
+hand: installing the engine, patching it, configuring backups, testing
+restores, setting up replication, monitoring disk growth, and handling
+failover at three in the morning.
 
 RDS takes over a specific list of those jobs:
 
@@ -31,11 +32,11 @@ It does not take over:
 - Application-side connection pooling and retry logic
 - Cost. A managed database costs more per hour than the raw compute.
 
-The trade is control for time. You cannot get a shell on an RDS host and
-you cannot install arbitrary extensions or plugins. Everything that would
-normally be a config file edit happens through a parameter group instead.
-For most workloads that is a good trade. For workloads that need an
-unusual extension or kernel-level tuning, it is not.
+The trade is control for time. There is no shell on an RDS host and no way
+to install arbitrary extensions or plugins. Everything that would normally
+be a config file edit happens through a parameter group instead. For most
+workloads that is a good trade. For workloads that need an unusual
+extension or kernel-level tuning, it is not.
 
 ========================================
 2. ENGINES AND INSTANCE CLASSES
@@ -71,8 +72,9 @@ Instance classes follow the same families as EC2, prefixed with db:
 db.t4g classes run on Graviton and are slightly cheaper than db.t3 for the
 same specification.
 
-Confirm a class is actually orderable for your engine and region before
-trying to launch, because the error message if it is not is unhelpful:
+Confirm a class is actually orderable for the chosen engine and region
+before trying to launch, because the error message if it is not is
+unhelpful:
 
 aws rds describe-orderable-db-instance-options \
   --engine mysql \
@@ -86,8 +88,8 @@ aws rds describe-orderable-db-instance-options \
 
 Storage types:
 
-gp2 and gp3 - general purpose SSD. gp3 lets you provision IOPS and
-throughput independently of size, which is usually the better default.
+gp2 and gp3 - general purpose SSD. gp3 allows IOPS and throughput to be
+provisioned independently of size, which is usually the better default.
 
 io1 and io2 - provisioned IOPS SSD, for workloads that need guaranteed
 high IOPS. Considerably more expensive.
@@ -117,7 +119,7 @@ is a named collection of subnets, and RDS picks one from the group.
 A DB subnet group must contain subnets in at least two availability zones,
 even for a single-AZ instance. This surprises people, and the reason is
 that AWS wants the option of promoting the instance to Multi-AZ later
-without you having to rebuild the network.
+without the network having to be rebuilt.
 
 Find the subnets in a VPC and which AZ each is in:
 
@@ -133,7 +135,7 @@ aws rds create-db-subnet-group \
   --db-subnet-group-description "Week 6 database subnets" \
   --subnet-ids SUBNET_ID_A SUBNET_ID_B
 
-The subnets you choose determine reachability. Public subnets plus
+The subnets chosen determine reachability. Public subnets plus
 --publicly-accessible gives the instance a public DNS name that resolves
 to a routable address. Private subnets, or public subnets with
 --no-publicly-accessible, mean the database can only be reached from
@@ -152,7 +154,8 @@ through a parameter group. A parameter group is the RDS equivalent of
 my.cnf or postgresql.conf.
 
 Every instance gets a default parameter group, and the default is not
-editable. To change any setting you create your own group and associate it.
+editable. Changing any setting means creating a new group and associating
+it with the instance.
 
 aws rds create-db-parameter-group \
   --db-parameter-group-name week6-mysql-params \
@@ -187,21 +190,21 @@ not substitutes.
 Multi-AZ - availability
 
 A standby instance in a second availability zone, kept in sync by
-synchronous replication. You cannot read from it, connect to it, or
-address it in any way. It exists only to take over.
+synchronous replication. It cannot be read from, connected to, or
+addressed in any way. It exists only to take over.
 
 On failure, RDS repoints the same endpoint DNS name at the standby.
 Failover typically completes in 60 to 120 seconds. The application sees
 dropped connections and then recovery, with no configuration change.
 
-Multi-AZ roughly doubles the cost, because you are paying for two
-instances to serve one workload.
+Multi-AZ roughly doubles the cost, because two instances are being paid
+for to serve one workload.
 
 Read replicas - scale and geography
 
-An asynchronously replicated copy with its own endpoint, which you can
-read from. Use them to take read load off the primary, to serve reports
-without touching production, or to keep a copy in another region.
+An asynchronously replicated copy with its own endpoint, which can be read
+from. Replicas take read load off the primary, serve reports without
+touching production, or keep a copy in another region.
 
 Because replication is asynchronous, a replica can lag. An application
 that writes and then immediately reads from a replica may not see its own
@@ -227,13 +230,13 @@ retained for a configurable period. Setting --backup-retention-period to 0
 disables backups entirely, which also disables point-in-time recovery.
 Never do this on anything that matters.
 
-Automated backups are deleted when the instance is deleted, unless you
-explicitly retain them.
+Automated backups are deleted when the instance is deleted, unless
+explicitly retained.
 
 Manual snapshots
 
-Taken on demand, kept until you delete them, and they survive instance
-deletion. This is what you take before a risky migration.
+Taken on demand, kept until explicitly deleted, and they survive instance
+deletion. This is the snapshot to take before a risky migration.
 
 aws rds create-db-snapshot \
   --db-instance-identifier week6-mysql \
@@ -250,12 +253,12 @@ aws rds restore-db-instance-to-point-in-time \
   --target-db-instance-identifier week6-mysql-restored \
   --restore-time 2026-09-05T14:30:00Z
 
-The operational consequence: recovery is not instant. You are provisioning
-a new instance, waiting for it, and then repointing the application. Plan
-recovery time objectives around that, not around the idea that the data
-"comes back".
+The operational consequence: recovery is not instant. It means provisioning
+a new instance, waiting for it, and then repointing the application.
+Recovery time objectives should be planned around that, not around the idea
+that the data "comes back".
 
-The rule that matters more than any of this: a backup you have never
+The rule that matters more than any of this: a backup that has never been
 restored is not a backup, it is a hope. Test the restore.
 
 ========================================
@@ -316,9 +319,9 @@ amount is small and the practice is correct.
 Encryption
 --storage-encrypted encrypts the volume, snapshots, and read replicas with
 KMS. It costs nothing extra on the RDS side and can only be set at
-creation time. An unencrypted instance cannot be converted in place; you
-snapshot, copy the snapshot with encryption enabled, and restore. Turn it
-on at creation and the problem never arises.
+creation time. An unencrypted instance cannot be converted in place. The
+procedure is to snapshot it, copy the snapshot with encryption enabled, and
+restore. Enabling it at creation means the problem never arises.
 
 Database-level users
 The master user is not the application user. Create a restricted user with
@@ -361,8 +364,8 @@ timeout 5 bash -c "cat < /dev/null > /dev/tcp/ENDPOINT_ADDRESS/3306" \
 That distinction is the whole of RDS troubleshooting. If the port is not
 reachable, the problem is a security group, a subnet, or public
 accessibility. If it is reachable but the login fails, the problem is
-credentials or database-level grants. Establish which half you are in
-before changing anything.
+credentials or database-level grants. Establish which half the failure is
+in before changing anything.
 
 ========================================
 10. MONITORING AND MAINTENANCE
@@ -454,8 +457,8 @@ From an EC2 instance in the Week 5 security group, install the client,
 connect, create a schema and a table, insert a row, and read it back.
 
 Then prove the boundary works: attempt to reach the endpoint from WSL,
-outside the VPC entirely. It must fail. A database you can reach from your
-laptop is a database the internet can reach.
+outside the VPC entirely. It must fail. A database reachable from a laptop
+is a database the internet can reach.
 
 Exercise 5: snapshot and inspect recovery options
 
