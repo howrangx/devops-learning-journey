@@ -1,7 +1,8 @@
 DAY 1: IAM DEEP DIVE - HANDS-ON LOG
+Session Record
 
-DATE: August 31, 2026
-PERFORMED BY: Iman
+LEARNING DATE: August 31, 2026
+COMPLETED BY: Iman
 REGION: us-east-1
 ENVIRONMENT: WSL2 Ubuntu on Windows
 

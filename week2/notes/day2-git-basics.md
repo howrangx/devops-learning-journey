@@ -51,9 +51,9 @@ Branch
 - Branches can be merged
 
 Working Directory
-- Your local files on disk
-- Changes you're currently making
-- Where you edit files
+- The local files on disk
+- Changes currently being made
+- Where files are edited
 
 Staging Area (Index)
 - Intermediate area between working directory and repository
@@ -274,7 +274,7 @@ git branch -M main        (rename to main if needed)
 git push -u origin main   (push and track)
 
 Forking
-- Copy entire repository to your account
+- Copies the entire repository into the forking account
 - Create pull request to suggest changes
 - Useful for contributing to others' projects
 

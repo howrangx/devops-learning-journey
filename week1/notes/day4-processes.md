@@ -30,7 +30,7 @@ Basic syntax:
 ps [OPTIONS]
 
 Common options:
-ps              Show your processes
+ps              Show the current user's processes
 ps a            Show all processes
 ps aux          Show all with detailed info
 ps -ef          Show process tree

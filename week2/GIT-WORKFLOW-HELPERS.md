@@ -256,7 +256,7 @@ git config --global commit.template ~/.gitmessage
 5. BRANCH ANALYSIS TOOLS
 ========================================
 
-Understand your repository structure.
+Understand the repository structure.
 
 Show Branches with Last Commit:
 git branch -vv

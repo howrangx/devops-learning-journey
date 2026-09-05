@@ -115,8 +115,8 @@ File operations tested:
 6. KEY TAKEAWAYS
 ================================================
 
-1. Always know where you are: Use pwd frequently
-2. List before you act: Use ls to see what's there
+1. Always confirm the current location: use pwd frequently
+2. List before acting: use ls to see what is there
 3. Use absolute paths when unsure
 4. Back up before deleting: cp before rm
 5. Use -i flag for safety: rm -i instead of rm

@@ -1,18 +1,30 @@
-# Day 4: Hands-On Log
+DAY 4: VPC DEEP DIVE - HANDS-ON LOG
+Session Record
 
-## Session Summary
+LEARNING DATE: July 11, 2026
+COMPLETED BY: Iman
+REGION: us-east-1
+ENVIRONMENT: WSL2 Ubuntu on Windows
+
+========================================
+1. SESSION SUMMARY
+========================================
 
 Explored the structure of the default VPC via CLI, confirming the
 subnet layout, route table entries, and Internet Gateway attachment
 that make the VPC's subnets public.
 
-## Resources Explored (no new resources created)
+========================================
+2. RESOURCES EXPLORED (NO NEW RESOURCES CREATED)
+========================================
 
-### VPC
+VPC
+
 - VPC ID: VPC_ID
 - CIDR Block: 172.31.0.0/16
 
-### Subnets (six total, one per Availability Zone)
+Subnets (six total, one per Availability Zone)
+
 - SUBNET_ID - us-east-1a - 172.31.0.0/20
 - SUBNET_ID - us-east-1c - 172.31.16.0/20
 - SUBNET_ID - us-east-1d - 172.31.32.0/20
@@ -23,7 +35,8 @@ that make the VPC's subnets public.
 All six have MapPublicIpOnLaunch set to true, meaning any instance
 launched into them automatically receives a public IP address.
 
-### Route Table
+Route Table
+
 - Local route: 172.31.0.0/16 -> local (automatic, present in every
   VPC, cannot be removed)
 - Internet route: 0.0.0.0/0 -> INTERNET_GATEWAY_ID
@@ -32,11 +45,14 @@ This second route is what makes all six subnets public: any traffic
 not destined for another address inside the VPC is sent to the
 Internet Gateway.
 
-### Internet Gateway
+Internet Gateway
+
 - Internet Gateway ID: INTERNET_GATEWAY_ID
 - State: available, attached to the VPC
 
-## Commands Used
+========================================
+3. COMMANDS USED
+========================================
 
 List subnets in the VPC:
 aws ec2 describe-subnets \
@@ -56,7 +72,9 @@ aws ec2 describe-internet-gateways \
   --query "InternetGateways[].[InternetGatewayId,Attachments[0].State]" \
   --output table
 
-## Key Takeaways
+========================================
+4. KEY TAKEAWAYS
+========================================
 
 - The default VPC spans all Availability Zones in the region, one
   subnet per AZ, for built-in redundancy
@@ -69,3 +87,7 @@ aws ec2 describe-internet-gateways \
 - The subnet used by EC2 instances on Day 1 and Day 2
   (SUBNET_ID, us-east-1a) was auto-selected by AWS
   since no subnet was explicitly specified at launch
+
+========================================
+END OF DAY 4 HANDS-ON LOG
+========================================

@@ -1,20 +1,32 @@
-# Day 2: Hands-On Log
+DAY 2: EC2 DEEP DIVE - HANDS-ON LOG
+Session Record
 
-## Session Summary
+LEARNING DATE: July 9, 2026
+COMPLETED BY: Iman
+REGION: us-east-1
+ENVIRONMENT: WSL2 Ubuntu on Windows
+
+========================================
+1. SESSION SUMMARY
+========================================
 
 Launched an EC2 instance with a user data script that automatically
 installed and started an Apache web server at boot, with no manual
 SSH configuration required. Verified the webpage via curl, then
 explored the IMDSv2 instance metadata service before terminating.
 
-## Resources Created
+========================================
+2. RESOURCES CREATED
+========================================
 
-### User Data Script
+User Data Script
+
 - File: week5/user-data-webserver.sh
 - Installs httpd, starts and enables the service, and writes a
   custom index.html embedding the instance hostname
 
-### EC2 Instance (terminated)
+EC2 Instance (terminated)
+
 - Instance ID: INSTANCE_ID
 - AMI: ami-0ac742fa26982e153 (Amazon Linux 2023, minimal, x86_64)
 - Instance Type: t3.micro
@@ -23,11 +35,14 @@ explored the IMDSv2 instance metadata service before terminating.
 - Security Group: SECURITY_GROUP_ID (reused from Day 1)
 - Status: terminated at end of session
 
-### Security Group Update
+Security Group Update
+
 - Added inbound rule for TCP port 80 (HTTP), restricted to own
   public IP /32, alongside the existing port 22 rule from Day 1
 
-## Commands Used
+========================================
+3. COMMANDS USED
+========================================
 
 Open HTTP port on existing security group:
 aws ec2 authorize-security-group-ingress \
@@ -62,7 +77,9 @@ curl -s http://169.254.169.254/latest/meta-data/instance-id \
 Terminate instance:
 aws ec2 terminate-instances --instance-ids INSTANCE_ID
 
-## Key Takeaways
+========================================
+4. KEY TAKEAWAYS
+========================================
 
 - User data scripts allow full first-boot automation, no manual SSH
   configuration needed
@@ -72,3 +89,7 @@ aws ec2 terminate-instances --instance-ids INSTANCE_ID
   read via GET, a security improvement over the older IMDSv1
 - Reusing the key pair and security group from Day 1 confirmed these
   resources persist independently of any individual instance
+
+========================================
+END OF DAY 2 HANDS-ON LOG
+========================================

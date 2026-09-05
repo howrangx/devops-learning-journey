@@ -47,7 +47,7 @@ Docker Daemon (dockerd):
 Docker CLI:
 - Command line tool (docker)
 - Sends commands to the daemon
-- What you interact with directly
+- The component interacted with directly
 
 Docker Hub:
 - Public image registry
@@ -173,7 +173,7 @@ Inspect a container:
 docker inspect myapp
 
 ========================================
-5. RUNNING YOUR FIRST CONTAINERS
+5. RUNNING THE FIRST CONTAINERS
 ========================================
 
 Hello World:

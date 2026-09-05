@@ -111,7 +111,7 @@ Root nameservers
   |
 Top-Level Domain (TLD) servers (.com, .org, .net)
   |
-Authoritative nameservers (your-domain.com)
+Authoritative nameservers (example.com)
 
 DNS Caching
 - Resolvers cache DNS records
@@ -455,7 +455,7 @@ Content Delivery Network (CDN)
 10. PRACTICAL NETWORKING EXERCISES
 ========================================
 
-Exercise 1: Check Your Network
+Exercise 1: Check the Network
 ip addr show
 List all network interfaces and IPs
 

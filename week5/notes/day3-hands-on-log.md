@@ -1,21 +1,34 @@
-# Day 3: Hands-On Log
+DAY 3: S3 DEEP DIVE - HANDS-ON LOG
+Session Record
 
-## Session Summary
+LEARNING DATE: July 10, 2026
+COMPLETED BY: Iman
+REGION: us-east-1
+ENVIRONMENT: WSL2 Ubuntu on Windows
+
+========================================
+1. SESSION SUMMARY
+========================================
 
 Enabled versioning on the existing S3 bucket, uploaded multiple
 versions of the same file, retrieved an old version specifically,
 tested deletion behavior under versioning, and recovered a deleted
 object by removing its delete marker.
 
-## Resources Modified
+========================================
+2. RESOURCES MODIFIED
+========================================
 
-### S3 Bucket
+S3 Bucket
+
 - Name: iman-devops-week5-2026
 - Versioning: enabled (cannot be fully disabled, only suspended)
 - Object: version-test.txt, three versions uploaded, one delete
   marker created and later removed to restore the object
 
-## Commands Used
+========================================
+3. COMMANDS USED
+========================================
 
 Enable versioning:
 aws s3api put-bucket-versioning \
@@ -60,7 +73,9 @@ aws s3api delete-object \
   --key version-test.txt \
   --version-id <delete-marker-version-id>
 
-## Issues Encountered
+========================================
+4. ISSUES ENCOUNTERED
+========================================
 
 1. Initial attempt to query both Versions and DeleteMarkers in one
    --query expression using a comma failed with a ParamValidation
@@ -68,7 +83,9 @@ aws s3api delete-object \
    expressions with a plain comma. Resolved using a multi-select
    hash syntax instead: {Versions: ..., DeleteMarkers: ...}
 
-## Key Takeaways
+========================================
+5. KEY TAKEAWAYS
+========================================
 
 - Deleting an object under versioning does not remove data, it adds
   a delete marker as the new latest version
@@ -80,3 +97,7 @@ aws s3api delete-object \
   its previously visible state
 - JMESPath multi-select hash syntax ({key: expr, key: expr}) is
   needed to combine multiple queries into one structured result
+
+========================================
+END OF DAY 3 HANDS-ON LOG
+========================================

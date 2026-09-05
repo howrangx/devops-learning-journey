@@ -1,39 +1,54 @@
-# Day 1: Hands-On Log
+DAY 1: AWS FUNDAMENTALS - HANDS-ON LOG
+Session Record
 
-## Session Summary
+LEARNING DATE: July 8, 2026
+COMPLETED BY: Iman
+REGION: us-east-1
+ENVIRONMENT: WSL2 Ubuntu on Windows
+
+========================================
+1. SESSION SUMMARY
+========================================
 
 Completed the full AWS Fundamentals loop: explored the default VPC,
 created an S3 bucket, and launched, connected to, and terminated an
 EC2 instance via the AWS CLI.
 
-## Resources Created
+========================================
+2. RESOURCES CREATED
+========================================
 
-### Default VPC (pre-existing, explored only)
+Default VPC (pre-existing, explored only)
+
 - VPC ID: VPC_ID
 - CIDR Block: 172.31.0.0/16
 - Region: us-east-1
 
-### S3 Bucket
+S3 Bucket
+
 - Name: iman-devops-week5-2026
 - Region: us-east-1
 - Contents: test-file.txt (38 bytes)
 - Status: still exists (not cleaned up, negligible cost)
 
-### Key Pair
+Key Pair
+
 - Name: week5-key
 - Private key stored locally at week5/week5-key.pem
 - Permissions set to 400
 - Added to .gitignore
 - Status: still exists, will be reused in later sessions
 
-### Security Group
+Security Group
+
 - Name: week5-sg
 - Group ID: SECURITY_GROUP_ID
 - VPC: VPC_ID
 - Inbound rule: TCP port 22 (SSH), restricted to own public IP /32
 - Status: still exists, will be reused in later sessions
 
-### EC2 Instance (terminated)
+EC2 Instance (terminated)
+
 - Instance ID: INSTANCE_ID
 - AMI: ami-0ac742fa26982e153 (Amazon Linux 2023, minimal, x86_64)
 - Instance Type: t3.micro (free-tier eligible; t2.micro was not
@@ -41,7 +56,9 @@ EC2 instance via the AWS CLI.
 - Public IP (while running): PUBLIC_IP
 - Status: terminated at end of session
 
-## Commands Used
+========================================
+3. COMMANDS USED
+========================================
 
 Explore default VPC:
 aws ec2 describe-vpcs
@@ -97,7 +114,9 @@ ssh -i week5-key.pem ec2-user@<public-ip>
 Terminate instance:
 aws ec2 terminate-instances --instance-ids INSTANCE_ID
 
-## Issues Encountered
+========================================
+4. ISSUES ENCOUNTERED
+========================================
 
 1. t2.micro was rejected as not free-tier eligible on this account
    (InvalidParameterCombination error). Resolved by querying
@@ -108,7 +127,9 @@ aws ec2 terminate-instances --instance-ids INSTANCE_ID
    'q' to exit. Resolved by running:
    aws configure set cli_pager ""
 
-## Key Takeaways
+========================================
+5. KEY TAKEAWAYS
+========================================
 
 - Free-tier eligible instance types can vary by account; always check
   with describe-instance-types rather than assuming t2.micro.
@@ -118,3 +139,7 @@ aws ec2 terminate-instances --instance-ids INSTANCE_ID
   avoid unnecessary cost and to stay within free-tier hour limits.
 - S3 bucket names are globally unique across all AWS accounts, not
   just within a single account.
+
+========================================
+END OF DAY 1 HANDS-ON LOG
+========================================

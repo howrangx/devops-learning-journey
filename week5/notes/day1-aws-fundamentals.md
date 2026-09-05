@@ -1,6 +1,12 @@
-# Day 1: AWS Fundamentals - EC2, S3, VPC Basics
+DAY 1: AWS FUNDAMENTALS - EC2, S3, VPC BASICS
+Command Reference and Learning Notes
 
-## AWS Global Infrastructure
+LEARNING DATE: July 8, 2026
+COMPLETED BY: Iman
+
+========================================
+1. AWS GLOBAL INFRASTRUCTURE
+========================================
 
 AWS organizes its infrastructure into:
 - Regions: geographic areas (e.g. us-east-1 = N. Virginia)
@@ -12,7 +18,9 @@ Choosing a region affects: latency, pricing, and which services are
 available. Free tier resources should stay in one region to avoid
 unexpected charges.
 
-## EC2 (Elastic Compute Cloud)
+========================================
+2. EC2 (ELASTIC COMPUTE CLOUD)
+========================================
 
 EC2 provides virtual servers (instances) in the cloud.
 
@@ -29,7 +37,9 @@ Instance lifecycle states: pending, running, stopping, stopped,
 shutting-down, terminated. Stopped instances still incur EBS storage
 charges; terminated instances are permanently deleted.
 
-## S3 (Simple Storage Service)
+========================================
+3. S3 (SIMPLE STORAGE SERVICE)
+========================================
 
 S3 is object storage, not a file system. Data is stored as objects
 inside buckets.
@@ -46,7 +56,9 @@ Key concepts:
 S3 is region-specific but the bucket namespace is global across all
 of AWS, so bucket names must be unique across every AWS account.
 
-## VPC (Virtual Private Cloud)
+========================================
+4. VPC (VIRTUAL PRIVATE CLOUD)
+========================================
 
 A VPC is an isolated virtual network within AWS where resources like
 EC2 instances are launched.
@@ -64,7 +76,9 @@ Key concepts:
 Every AWS account has a Default VPC per region, already configured
 with public subnets, ready to use without extra setup.
 
-## AWS CLI Command Patterns
+========================================
+5. AWS CLI COMMAND PATTERNS
+========================================
 
 General structure: aws <service> <action> [options]
 
@@ -75,9 +89,15 @@ Examples covered today:
 - aws s3 mb s3://bucket-name
 - aws ec2 run-instances (with AMI ID, instance type, key pair)
 
-## Key Takeaways
+========================================
+6. KEY TAKEAWAYS
+========================================
 
 - EC2 = compute (virtual servers)
 - S3 = storage (objects in buckets)
 - VPC = networking (isolated virtual network)
 - These three are the foundation almost every other AWS service builds on
+
+========================================
+NEXT STEPS: Day 2 - EC2 Deep Dive
+========================================

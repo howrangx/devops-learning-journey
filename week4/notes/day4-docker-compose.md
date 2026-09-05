@@ -11,9 +11,9 @@ COMPLETED BY: Iman
 Docker Compose is a tool for defining and running
 multi-container applications using a single YAML file.
 
-Without Compose, to run a web app with a database
-you would need multiple docker run commands with
-the right flags, networks, and volumes manually.
+Without Compose, running a web app with a database
+requires multiple docker run commands with the right
+flags, networks, and volumes set manually.
 
 With Compose, everything is defined in one file
 and started with one command.
@@ -52,7 +52,7 @@ volumes:
   volume_name:
 
 A service is one container definition.
-You can have as many services as needed.
+There can be as many services as needed.
 
 ========================================
 3. SERVICE CONFIGURATION

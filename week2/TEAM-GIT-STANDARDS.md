@@ -293,7 +293,7 @@ For Reviewers:
 
 For Authors:
 - Respond to all comments
-- Explain your decisions
+- Explain decisions
 - Make requested changes
 - Push new commits to same branch
 - Request re-review when ready

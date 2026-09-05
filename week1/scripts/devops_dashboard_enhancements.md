@@ -52,7 +52,7 @@ POTENTIAL ENHANCEMENTS
 
 IMPLEMENTATION NOTES
 These features can be added incrementally.
-Start with most useful features for your use case.
+Start with the most useful features for the intended use case.
 Always maintain backup of working version.
 Test thoroughly before deployment.
 

@@ -44,7 +44,7 @@ PROJECT COMPONENTS
 
 LEARNING OBJECTIVES
 
-By completing this capstone, you will:
+This capstone covers:
 - Create professional team Git standards
 - Implement GitHub automation templates
 - Develop workflow helper tools

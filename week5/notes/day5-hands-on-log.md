@@ -1,6 +1,14 @@
-# Day 5: Hands-On Log
+DAY 5: CLI AUTOMATION - HANDS-ON LOG
+Session Record
 
-## Session Summary
+LEARNING DATE: July 12, 2026
+COMPLETED BY: Iman
+REGION: us-east-1
+ENVIRONMENT: WSL2 Ubuntu on Windows
+
+========================================
+1. SESSION SUMMARY
+========================================
 
 Built a Python automation script using boto3 that replicates the
 manual EC2 and S3 workflows from earlier in the week: listing running
@@ -8,14 +16,18 @@ instances, launching an instance and waiting for it to be running,
 uploading a file to S3, and terminating the instance with a wait for
 full termination.
 
-## Environment Setup
+========================================
+2. ENVIRONMENT SETUP
+========================================
 
 - Reused the existing virtual environment from Week 3
   (~/devops-week3-env)
 - Installed boto3 via pip inside the activated virtual environment
 - Verified with: python3 -c "import boto3; print(boto3.__version__)"
 
-## Script Created
+========================================
+3. SCRIPT CREATED
+========================================
 
 - File: week5/scripts/aws_automation.py
 - Functions:
@@ -28,7 +40,9 @@ full termination.
   - terminate_instance(): terminates an instance and uses a waiter to
     block until it is fully terminated
 
-## Resources Used
+========================================
+4. RESOURCES USED
+========================================
 
 - AMI: ami-0ac742fa26982e153 (reused from Day 1/2)
 - Instance Type: t3.micro
@@ -36,7 +50,9 @@ full termination.
 - Security Group: SECURITY_GROUP_ID (reused)
 - S3 Bucket: iman-devops-week5-2026 (reused)
 
-## Issues Encountered
+========================================
+5. ISSUES ENCOUNTERED
+========================================
 
 1. An instance launched during script testing (INSTANCE_ID)
    was left running after the script run completed, since each script
@@ -44,7 +60,9 @@ full termination.
    prior runs. Caught by running list_running_instances() again and
    manually terminating the orphaned instance via the AWS CLI.
 
-## Key Takeaways
+========================================
+6. KEY TAKEAWAYS
+========================================
 
 - boto3 waiters (get_waiter) remove the need to manually poll
   resource state in a loop, unlike the manual describe-instances
@@ -59,3 +77,7 @@ full termination.
 - Reusing resource IDs (AMI, key pair, security group, bucket) across
   days confirms these are stable resources independent of individual
   instance lifecycles
+
+========================================
+END OF DAY 5 HANDS-ON LOG
+========================================

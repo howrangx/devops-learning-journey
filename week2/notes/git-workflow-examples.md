@@ -1,7 +1,12 @@
 GIT WORKFLOW EXAMPLES
 Practical scenarios and solutions
 
-EXAMPLE 1: Feature Development Workflow
+LEARNING DATE: June 10, 2026
+COMPLETED BY: Iman
+
+========================================
+EXAMPLE 1: FEATURE DEVELOPMENT WORKFLOW
+========================================
 
 Scenario: Develop new user profile feature
 
@@ -39,7 +44,9 @@ Steps:
    git pull origin main
    git branch -d feature/user-profile
 
-EXAMPLE 2: Bugfix Hotfix Workflow
+========================================
+EXAMPLE 2: BUGFIX HOTFIX WORKFLOW
+========================================
 
 Scenario: Critical bug in production
 
@@ -72,7 +79,9 @@ Steps:
 7. Deploy immediately
    (deployment process)
 
-EXAMPLE 3: Handling Merge Conflicts
+========================================
+EXAMPLE 3: HANDLING MERGE CONFLICTS
+========================================
 
 Scenario: Feature branch conflicts with main
 
@@ -97,7 +106,9 @@ Steps:
 6. Push
    git push origin main
 
-EXAMPLE 4: Rebasing Before Merge
+========================================
+EXAMPLE 4: REBASING BEFORE MERGE
+========================================
 
 Scenario: Clean history before merging
 
@@ -120,7 +131,9 @@ Steps:
 5. Create clean pull request
    (GitHub: shows no conflicts)
 
-EXAMPLE 5: Cherry-picking Specific Commits
+========================================
+EXAMPLE 5: CHERRY-PICKING SPECIFIC COMMITS
+========================================
 
 Scenario: Apply bugfix to multiple branches
 
@@ -141,7 +154,9 @@ Steps:
    git push origin release-1.2
    git push origin develop
 
-EXAMPLE 6: Stashing Work in Progress
+========================================
+EXAMPLE 6: STASHING WORK IN PROGRESS
+========================================
 
 Scenario: Need to switch branches without committing
 
@@ -164,7 +179,9 @@ Steps:
 6. Continue working
    (edit and commit)
 
-EXAMPLE 7: Interactive Rebase to Clean History
+========================================
+EXAMPLE 7: INTERACTIVE REBASE TO CLEAN HISTORY
+========================================
 
 Scenario: Multiple small commits, want to combine
 
@@ -192,7 +209,9 @@ Steps:
 7. Force push (only private branch)
    git push --force origin feature-branch
 
-EXAMPLE 8: Version Management with Tags
+========================================
+EXAMPLE 8: VERSION MANAGEMENT WITH TAGS
+========================================
 
 Scenario: Release version 2.0.0
 
@@ -216,7 +235,9 @@ Steps:
 6. Deploy v2.0.0
    (deployment process with tag)
 
-EXAMPLE 9: Working with Upstream (Contributing to Others' Project)
+========================================
+EXAMPLE 9: WORKING WITH UPSTREAM (CONTRIBUTING TO OTHERS' PROJECT)
+========================================
 
 Scenario: Contribute to open source project
 
@@ -224,7 +245,7 @@ Steps:
 1. Fork project on GitHub
    (GitHub: click Fork)
 
-2. Clone your fork
+2. Clone the fork
    git clone your-fork-url
 
 3. Add upstream reference
@@ -240,7 +261,7 @@ Steps:
    git fetch upstream
    git rebase upstream/main
 
-7. Push to your fork
+7. Push to the fork
    git push origin feature/improvement
 
 8. Create pull request
@@ -252,7 +273,9 @@ Steps:
    git rebase upstream/main
    git push origin main
 
-EXAMPLE 10: Continuous Integration Workflow
+========================================
+EXAMPLE 10: CONTINUOUS INTEGRATION WORKFLOW
+========================================
 
 Scenario: Automated testing before merge
 
@@ -281,7 +304,9 @@ Steps:
 7. Merge pull request
    (GitHub: merge button enabled)
 
+========================================
 BEST PRACTICES FOR ALL WORKFLOWS
+========================================
 
 1. Always pull before pushing
    git pull origin branch_name
@@ -310,9 +335,12 @@ BEST PRACTICES FOR ALL WORKFLOWS
 8. Use tags for releases
    Track versions
 
-9. Review your own PR first
+9. Self-review the PR first
    Check for issues before others review
 
 10. Keep branches short-lived
     Reduce merge conflicts
 
+========================================
+END OF GIT WORKFLOW EXAMPLES
+========================================

@@ -107,7 +107,7 @@ An IAM policy is a JSON document. Every policy has the same shape.
 
 Version
 Always the literal string "2012-10-17". This is a policy language version,
-not a date you choose. Omitting it silently disables features such as
+not a date to be chosen. Omitting it silently disables features such as
 policy variables.
 
 Statement
@@ -259,7 +259,7 @@ but almost always broader than needed, and AWS can change the contents
 without notice.
 
 Customer managed policy
-Written by you, stored as a standalone object, attachable to many
+Written in-house, stored as a standalone object, attachable to many
 identities, versioned with up to five versions retained. This is the
 recommended default for anything non-trivial.
 

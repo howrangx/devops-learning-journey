@@ -33,7 +33,7 @@ Image layers:
 - Only the top layer is writable (inside a container)
 
 Example layer stack:
-Layer 4: Your application code
+Layer 4: Application code
 Layer 3: Python packages (pip install)
 Layer 2: Python 3.11 runtime
 Layer 1: Ubuntu 22.04 base OS

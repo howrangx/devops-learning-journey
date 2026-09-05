@@ -343,7 +343,7 @@ Check types:
 mypy script.py
 
 ========================================
-5. CREATING YOUR OWN LIBRARY
+5. CREATING A LIBRARY
 ========================================
 
 Project Structure
@@ -412,7 +412,7 @@ pip install -e .
 Regular install:
 pip install .
 
-Testing Your Library
+Testing a Library
 
 Create tests/test_core.py:
 import pytest
@@ -643,7 +643,7 @@ if __name__ == "__main__":
         print(f"{container.name}: {container.status}")
 
 ========================================
-8. ORGANIZING YOUR DEPENDENCIES
+8. ORGANIZING DEPENDENCIES
 ========================================
 
 Production vs Development
@@ -719,7 +719,7 @@ Never:
 - Assume dependencies
 - Use pip without tracking
 
-Version Your Code
+Versioning Code
 
 Always:
 - Use semantic versioning
@@ -732,7 +732,7 @@ Example version:
 1.1.1 (bug fix)
 2.0.0 (breaking change)
 
-Test Your Code
+Testing Code
 
 Always:
 - Write tests
@@ -745,7 +745,7 @@ black --check .
 flake8 .
 mypy .
 
-Document Your Library
+Documenting a Library
 
 Always:
 - Include README
@@ -875,7 +875,7 @@ Topics Covered:
 - Virtual environments
 - Requirements files
 - Popular DevOps libraries
-- Creating your own library
+- Creating a library
 - Version management
 - Common DevOps patterns
 - Dependency organization

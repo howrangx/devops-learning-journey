@@ -1,6 +1,12 @@
-# Day 3: S3 Deep Dive
+DAY 3: S3 DEEP DIVE
+Command Reference and Learning Notes
 
-## Versioning
+LEARNING DATE: July 10, 2026
+COMPLETED BY: Iman
+
+========================================
+1. VERSIONING
+========================================
 
 By default, uploading a new object with the same key overwrites the
 old one permanently. Versioning changes this: every upload to the
@@ -17,7 +23,9 @@ Key concepts:
 - Versioning protects against accidental overwrites and deletions, at
   the cost of extra storage for every version kept
 
-## Access Control
+========================================
+2. ACCESS CONTROL
+========================================
 
 S3 access can be controlled at multiple layers:
 
@@ -36,7 +44,9 @@ For learning purposes, buckets should stay private by default, with
 Block Public Access left enabled, unless there's a specific reason
 to serve content publicly (such as static website hosting).
 
-## Storage Classes
+========================================
+3. STORAGE CLASSES
+========================================
 
 S3 offers multiple storage tiers trading cost against retrieval speed
 and availability, useful for optimizing costs based on how often data
@@ -55,14 +65,18 @@ is actually accessed.
 Storage class is set per-object and can be changed after upload
 through lifecycle rules or manual transitions.
 
-## Lifecycle Rules
+========================================
+4. LIFECYCLE RULES
+========================================
 
 Automated rules that transition objects between storage classes, or
 delete them, after a specified number of days. Useful for
 automatically moving old logs to cheaper storage, or expiring
 temporary files without manual cleanup.
 
-## Key Takeaways
+========================================
+5. KEY TAKEAWAYS
+========================================
 
 - Versioning protects against accidental overwrite/delete, but
   increases storage usage and cost over time
@@ -72,3 +86,7 @@ temporary files without manual cleanup.
   unless there's a specific reason to serve public content
 - Storage class selection should be driven by actual access patterns,
   not assumptions
+
+========================================
+NEXT STEPS: Day 4 - VPC Deep Dive
+========================================

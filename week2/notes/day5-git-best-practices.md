@@ -75,7 +75,7 @@ git tag -d old-tag
 git push origin --delete old-tag
 
 Review Before Pushing:
-- Check your changes: git diff
+- Check the changes: git diff
 - Review staged changes: git diff --staged
 - Check commit message
 - Verify test results
@@ -99,7 +99,7 @@ git merge feature-branch
 
 Avoid Force Pushes on Shared Branches:
 Force push only on:
-- Your personal branches
+- Personal branches
 - Private feature branches
 - Never on main, develop, or shared branches
 
@@ -145,7 +145,7 @@ git push origin v1.0.0
 
 Synchronize Frequently:
 git fetch origin (at least daily)
-git pull origin main (for your branch)
+git pull origin main (for the current branch)
 
 Prevents:
 - Merge conflicts

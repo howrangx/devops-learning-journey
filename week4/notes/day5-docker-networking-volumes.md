@@ -95,7 +95,7 @@ Two separate concepts:
 Port publishing (-p):
 - Exposes a container port to the HOST machine
 - Needed to access the container from outside Docker
-- Example: -p 8080:80 lets you curl localhost:8080
+- Example: -p 8080:80 makes the service reachable at localhost:8080
 
 Network communication (container name):
 - Containers on the same network reach each other directly

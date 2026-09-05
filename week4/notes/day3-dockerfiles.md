@@ -62,7 +62,7 @@ ADD
 - Similar to COPY but with extra features
 - Can extract tar archives automatically
 - Can fetch URLs (not recommended)
-- Use COPY unless you need ADD features
+- Use COPY unless ADD features are required
 
 ADD archive.tar.gz /app/
 
@@ -84,7 +84,7 @@ ENV DB_HOST=localhost
 EXPOSE
 - Documents which port the container listens on
 - Does not actually publish the port
-- Informational only - you still need -p when running
+- Informational only - -p is still required when running
 
 EXPOSE 8080
 

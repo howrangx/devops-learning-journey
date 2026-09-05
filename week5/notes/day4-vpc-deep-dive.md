@@ -1,12 +1,20 @@
-# Day 4: VPC Deep Dive
+DAY 4: VPC DEEP DIVE
+Command Reference and Learning Notes
 
-## VPC Recap
+LEARNING DATE: July 11, 2026
+COMPLETED BY: Iman
+
+========================================
+1. VPC RECAP
+========================================
 
 A VPC is an isolated virtual network within AWS, with resources like
 EC2 instances launched inside it. Every AWS account gets a Default
 VPC per region, pre-configured and ready to use, as explored on Day 1.
 
-## Subnets
+========================================
+2. SUBNETS
+========================================
 
 A subnet is a subdivision of the VPC's IP address range (CIDR block),
 and is tied to exactly one Availability Zone.
@@ -25,7 +33,9 @@ Key concepts:
   (network address, VPC router, DNS, future use, and broadcast
   address), which reduces the usable address count
 
-## Route Tables
+========================================
+3. ROUTE TABLES
+========================================
 
 A route table defines where network traffic from a subnet is
 directed, based on destination IP ranges.
@@ -40,14 +50,18 @@ Key concepts:
   without this route, the subnet is private regardless of anything
   else
 
-## Internet Gateway (IGW)
+========================================
+4. INTERNET GATEWAY (IGW)
+========================================
 
 A horizontally scaled, redundant component attached to a VPC that
 allows communication between resources in the VPC and the internet.
 A VPC can have at most one Internet Gateway attached at a time. The
 Default VPC already has one attached automatically.
 
-## Security Groups Revisited
+========================================
+5. SECURITY GROUPS REVISITED
+========================================
 
 Covered briefly on Day 1 and used again on Day 2, but worth
 formalizing:
@@ -62,7 +76,9 @@ formalizing:
 - Multiple security groups can be attached to a single instance, and
   their rules are combined (union of all allowed traffic)
 
-## Network ACLs (brief mention)
+========================================
+6. NETWORK ACLS (BRIEF MENTION)
+========================================
 
 A different, subnet-level firewall layer, separate from security
 groups. Unlike security groups, Network ACLs are stateless (inbound
@@ -71,7 +87,9 @@ explicit deny rules. The Default VPC's default Network ACL allows all
 traffic, so security groups have been doing all the actual filtering
 work so far this week.
 
-## Key Takeaways
+========================================
+7. KEY TAKEAWAYS
+========================================
 
 - Subnets subdivide a VPC's address range and are each tied to a
   single Availability Zone
@@ -82,3 +100,7 @@ work so far this week.
 - The Default VPC comes pre-configured with public subnets, an
   Internet Gateway, and permissive Network ACLs, which is why
   everything has worked so far without extra networking setup
+
+========================================
+NEXT STEPS: Day 5 - AWS CLI Automation
+========================================
