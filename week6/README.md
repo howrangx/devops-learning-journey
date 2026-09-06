@@ -48,6 +48,17 @@ Documentation
 - `notes/day2-hands-on-log.md` - engine and class discovery, source-group
   security rules, a free plan restriction, proving the network boundary,
   and two teardown commands that silently did nothing
+- `notes/day3-elb.md` - load balancer types, listeners and rules, target
+  groups, health checks, cross-zone behaviour, stickiness, TLS
+  termination and the ALB cost model
+- `notes/day3-hands-on-log.md` - security group chaining, health check
+  tuning, observed request distribution, deliberate failure injection,
+  and deletion dependency ordering
+
+Scripts
+
+- `scripts/day3-user-data.sh` - web server bootstrap that identifies the
+  serving instance and availability zone through IMDSv2
 
 Configuration
 
@@ -87,7 +98,7 @@ Total 24-30 hours.
 
 ## Status
 
-IN PROGRESS - started August 31, 2026. Days 1-2 complete.
+IN PROGRESS - started August 31, 2026. Days 1-3 complete.
 
 Previous: Week 5 - AWS Fundamentals Part 1
 Next: Week 7 - AWS Advanced Services
