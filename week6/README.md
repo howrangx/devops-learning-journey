@@ -54,11 +54,19 @@ Documentation
 - `notes/day3-hands-on-log.md` - security group chaining, health check
   tuning, observed request distribution, deliberate failure injection,
   and deletion dependency ordering
+- `notes/day4-auto-scaling.md` - launch templates and versioning, group
+  capacity, health check types, scaling policies, warm-up, instance
+  refresh, lifecycle hooks and termination policy
+- `notes/day4-hands-on-log.md` - service-linked role propagation,
+  self-healing and its detection window, a zero-error instance refresh,
+  walking a stalled monitoring pipeline, and scale-out and scale-in
 
 Scripts
 
 - `scripts/day3-user-data.sh` - web server bootstrap that identifies the
   serving instance and availability zone through IMDSv2
+- `scripts/day4-user-data.sh` - the same bootstrap with a template version
+  marker, used to observe an instance refresh roll out
 
 Configuration
 
@@ -98,7 +106,7 @@ Total 24-30 hours.
 
 ## Status
 
-IN PROGRESS - started August 31, 2026. Days 1-3 complete.
+IN PROGRESS - started August 31, 2026. Days 1-4 complete.
 
 Previous: Week 5 - AWS Fundamentals Part 1
 Next: Week 7 - AWS Advanced Services
