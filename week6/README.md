@@ -60,6 +60,12 @@ Documentation
 - `notes/day4-hands-on-log.md` - service-linked role propagation,
   self-healing and its detection window, a zero-error instance refresh,
   walking a stalled monitoring pipeline, and scale-out and scale-in
+- `notes/day5-ha-monitoring-cost.md` - failure domains and availability
+  arithmetic, CloudWatch metrics, alarms and logs, SNS, tagging, Budgets,
+  Cost Explorer and billing alarms
+- `notes/day5-hands-on-log.md` - failure domain analysis, a budget that
+  works on a credit-funded account, an empty Cost Explorer response, a
+  log-to-email alarm pipeline, and a teardown check that fails closed
 
 Scripts
 
@@ -67,6 +73,9 @@ Scripts
   serving instance and availability zone through IMDSv2
 - `scripts/day4-user-data.sh` - the same bootstrap with a template version
   marker, used to observe an instance refresh roll out
+- `scripts/teardown-check.sh` - scans several regions for resources that
+  keep billing; exits 0 when clean and 1 when anything is found or any
+  check cannot complete
 
 Configuration
 
@@ -106,7 +115,8 @@ Total 24-30 hours.
 
 ## Status
 
-IN PROGRESS - started August 31, 2026. Days 1-4 complete.
+IN PROGRESS - started August 31, 2026. Days 1-5 complete. Weekend
+capstone next.
 
 Previous: Week 5 - AWS Fundamentals Part 1
 Next: Week 7 - AWS Advanced Services
