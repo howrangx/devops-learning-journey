@@ -1,6 +1,8 @@
 #!/bin/bash
 # teardown-check.sh
-# Report AWS resources that keep billing after a session ends.
+# Report AWS resources that keep billing after a session ends, plus
+# non-default VPCs. A VPC costs nothing by itself, but one left behind
+# means a teardown stopped partway, so whatever it held deserves a look.
 # Exit 0 when nothing is found. Exit 1 when anything is found,
 # or when any check could not be completed.
 #
@@ -46,13 +48,17 @@ for r in $REGIONS; do
   check "$r" "RDS manual snapshots" aws rds describe-db-snapshots --snapshot-type manual \
     --query "DBSnapshots[].[DBSnapshotIdentifier,AllocatedStorage]"
   check "$r" "NAT gateways" aws ec2 describe-nat-gateways \
-    --query "NatGateways[?State=='available'].[NatGatewayId]"
+    --query "NatGateways[?State!='deleted' && State!='failed'].[NatGatewayId,State]"
   check "$r" "Unattached Elastic IPs" aws ec2 describe-addresses \
     --query "Addresses[?AssociationId==null].[PublicIp,AllocationId]"
   check "$r" "Unattached EBS volumes" aws ec2 describe-volumes \
     --filters "Name=status,Values=available" --query "Volumes[].[VolumeId,Size]"
   check "$r" "EBS snapshots" aws ec2 describe-snapshots --owner-ids self \
     --query "Snapshots[].[SnapshotId,VolumeSize]"
+  check "$r" "Secrets not scheduled for deletion" aws secretsmanager list-secrets \
+    --query "SecretList[].[Name]"
+  check "$r" "Non-default VPCs" aws ec2 describe-vpcs \
+    --filters "Name=is-default,Values=false" --query "Vpcs[].[VpcId,CidrBlock]"
 done
 
 if [ "$found" -eq 0 ]; then
